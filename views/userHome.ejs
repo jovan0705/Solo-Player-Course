@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <div class = 'navbar'>
+        <h1>Home Page</h1>
+        <form action="/homePage" method="get">        
+            <label for='search'>Search</label>
+            <input type="text" id="search" name="search">
+            <input type="submit" value="Search">
+        </form>
+        <form action="/homePage" method="get">
+            <label for="filter">Filter:</label>
+            <select name="filter" id="filter">
+              <option value="courseName">Course Name</option>
+              <option value="duration">Duration</option>
+              <option value="teacherName">Teacher Name</option>
+            </select> 
+            <input type="submit" value="Filter">
+        </form>
+    </div>
+    <div class = 'header'>
+        <h1>Welcome, <%=data.name%>!</h1>
+        <a href='/user/:id/addCourse'>Add Course</a>
+    </div>
+    <div class = 'isi'>
+
+    </div>
+</body>
+</html>
