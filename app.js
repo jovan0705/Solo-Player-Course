@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const router = require('./router')
 const session = require('express-session')
-const port = pryocess.env.PORT;
+const port = process.env.PORT;
 
 
 app.set('view engine', 'ejs');
@@ -19,5 +19,5 @@ app.use(session({
 app.use(router)
 
 app.listen(port, () => {
-    console.log(`App Listening to https://soloplayercourse.herokuapp.com`)
+    console.log(`App Listening to http://localhost:${port}`)
 })
