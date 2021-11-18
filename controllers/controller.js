@@ -143,7 +143,7 @@ class Controller {
                     subject: 'Verification Email',
                     text: `
                     Please click this Link to verify
-                    http://localhost:3000/verify/${id}/?code=${code}
+                    https://soloplayercourse.herokuapp.com/verify/${id}/?code=${code}
                     `
                 };
                   
