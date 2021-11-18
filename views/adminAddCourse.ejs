@@ -15,10 +15,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solo Player Course</title>
-    <link rel="stylesheet" href="../css/login.css">
+    <!-- <link rel="stylesheet" href="../css/login.css"> -->
 </head>
 
 <body>
+    <div class = 'navbar'>
+        <h1>Admin Page</h1>
+        <a href="/admin">Home</a>
+        <a href="/admin/teachers">List Teacher</a>
+        <a href="/admin/courses">List Course</a>
+    </div>
+    <div class = 'errors'>
+        <%if (errors !== undefined) {%>
+            <%errors.forEach(el => {%>
+                <p><%=el%></p>
+            <%})%>
+        <%}%>
+    </div>
     <div class='login'>
         <form action="/admin/addCourse" method="post">
             <h1>Add Course</h1>

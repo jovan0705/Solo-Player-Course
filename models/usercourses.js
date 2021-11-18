@@ -11,12 +11,42 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      // UserCourses.hasMany(models.Teacher)
+      // UserCourses.hasMany(models)
     }
   };
   UserCourses.init({
-    UserId: DataTypes.INTEGER,
-    CourseId: DataTypes.INTEGER
+    UserId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: true,
+        notEmpty: true
+      }
+    },
+    CourseId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: true,
+        notEmpty: true
+      }
+    },
+    TeacherId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {msg: 'Please Select your Teacher'},
+        notEmpty: {msg: 'Please Select your Teacher'}
+      }
+    }
   }, {
+    hooks: {
+      beforeCreate: (UserCourses) => {
+        UserCourses.createdAt= new Date(),
+        UserCourses.updatedAt= new Date()
+      }
+    },
     sequelize,
     modelName: 'UserCourses',
   });

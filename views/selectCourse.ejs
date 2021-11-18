@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo Player Course</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+    <div class='login'>
+            <h1>Select Course</h1>
+            <table>
+                <%data.forEach(el => {%>
+                    <tr>
+                        <td><%=el.name%></td>
+                        <td><a href="/user/<%=id%>/addCourse/<%=el.id%>">Select</a></td>
+                    </tr>
+                <%})%>
+            </table>
+            
+    </div>
+
+</body>
+
+</html>

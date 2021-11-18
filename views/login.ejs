@@ -13,8 +13,14 @@
     <div class='login'>
         <form action="/" method="post">
             <h1>Login Page</h1>
-
-            <label for='Username'>Username</label>
+            <div class = 'errors'>
+                <%if (errors !== undefined) {%>
+                    <%errors.forEach(el => {%>
+                        <p><%=el%></p>
+                    <%})%>
+                <%}%>
+            </div>
+            <label for='Username'>Username or Email</label>
             <br>
             <input type="text" id='username' class='isi' name='username' placeholder="Type your Username Here">
             <br>

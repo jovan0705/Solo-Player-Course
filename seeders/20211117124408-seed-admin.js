@@ -12,7 +12,6 @@ module.exports = {
      * }], {});
     */
     return queryInterface.bulkInsert('Users', [{
-      name: 'admin',
       username: 'admin',
       email: 'admin@mail.com',
       password: 'admin',

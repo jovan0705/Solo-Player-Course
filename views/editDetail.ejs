@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+</head>
+<body>
+    <div class = 'header'>
+        <h1>Hello <%=data[0].name%> This is Your Profile Details</h1>
+        <a href="/user/<%=data[0].User.id%>">Back</a>
+    </div>
+    <div class = 'errors'>
+        <%if (errors !== undefined) {%>
+            <%errors.forEach(el => {%>
+                <p><%=el%></p>
+            <%})%>
+        <%}%>
+    </div>
+    <form action="/user/<%=data[0].User.id%>/detail/edit" method="post">
+        <table>
+            <tr>
+                <td>
+                    <label for="name">Name</label>
+                </td>
+                <td>
+                    <input type="text" id="name" name="name" value="<%=data[0].name%>">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="age">Age</label>
+                </td>
+                <td>
+                    <input type="number" id="age" name="age" value=<%=data[0].age%>>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="email">Email</label>
+                </td>
+                <td>
+                    <input type="text" id="email" name="email" value="<%=data[0].email%>">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="gender">Gender</label>
+                </td>
+                <td>
+                    <input type="text" id="gender" name="gender" value="<%=data[0].gender%>">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="profilePicture">Profile Picture URL</label>
+                </td>
+                <td>
+                    <input type="text" id="profilePicture" name="profilePicture" value="<%=data[0].profilePicture%>">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit"></td>
+            </tr>
+        </table>        
+    </form>    
+</body>
+</html>

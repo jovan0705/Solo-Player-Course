@@ -11,15 +11,52 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Teacher.belongsTo(models.Course)
+      Teacher.belongsTo(models.Course, {foreignKey: 'CourseId'});
+      Teacher.belongsToMany(models.User, {
+        through: models.UserCourses
+      })
     }
   };
   Teacher.init({
-    name: DataTypes.STRING,
-    gender: DataTypes.STRING,
-    education: DataTypes.STRING,
-    CourseId: DataTypes.INTEGER
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {msg: `Please Input Teacher's Name` },
+        notEmpty: {msg: `Please Input Teacher's Name` }
+      }
+    },
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {msg: `Please Input Teacher's Gender` },
+        notEmpty: {msg: `Please Input Teacher's Gender` }
+      }
+    },
+    education: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {msg: `Please Input Teacher's Education` },
+        notEmpty: {msg: `Please Input Teacher's Education` }
+      }
+    },
+    CourseId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {msg: `Please Input Teacher's Course` },
+        notEmpty: {msg: `Please Input Teacher's Course` }
+      }
+    }
   }, {
+    hooks: {
+      beforeCreate: (Teacher) => {
+        Teacher.createdAt= new Date(),
+        Teacher.updatedAt= new Date()
+      }
+    },
     sequelize,
     modelName: 'Teacher',
   });

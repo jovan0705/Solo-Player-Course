@@ -9,27 +9,69 @@
 <body>
     <div class = 'navbar'>
         <h1>Home Page</h1>
-        <form action="/homePage" method="get">        
-            <label for='search'>Search</label>
-            <input type="text" id="search" name="search">
-            <input type="submit" value="Search">
-        </form>
-        <form action="/homePage" method="get">
-            <label for="filter">Filter:</label>
-            <select name="filter" id="filter">
+        <a href="/user/<%=data[0].id%>/detail">Profile Details</a>
+        <form action="/user/<%=data[0].id%>" method="get">
+            <label for="sortBy">Sort By:</label>
+            <select name="sortBy" id="sortBy">
+                <option disabled selected value>sortBy..</option>
               <option value="courseName">Course Name</option>
-              <option value="duration">Duration</option>
               <option value="teacherName">Teacher Name</option>
             </select> 
-            <input type="submit" value="Filter">
+            <input type="submit" value="Sort">
         </form>
+        <a href="/logout">
+            <button type="button">Log Out</button>
+        </a>
     </div>
     <div class = 'header'>
-        <h1>Welcome, <%=data.name%>!</h1>
-        <a href='/user/:id/addCourse'>Add Course</a>
+        <h1>Welcome, <%=data[0].Profile.upperCase%>!</h1>
+        <a href='/user/<%=data[0].id%>/addCourse'>Add Course</a>
     </div>
     <div class = 'isi'>
+        <%if (data[0].Courses.length > 0) {%>
+            <%data.forEach(el => {%>
+                <table>
+                    <tr>
+                        <th>
+                            Course Name
+                        </th>
+                        <th>
+                            Course Duration
+                        </th>
+                        <th>
+                            Teacher Name
+                        </th>
+                        <th> Added
 
+                        </th>
+                        <th>Action</th>
+                    </tr>
+                        <%el.Teachers.forEach(le=> {%>
+                            <tr>
+                                <td>
+                                    <%=le.Course.name%>
+                                </td>
+                                <td>
+                                    <%=le.Course.duration%>
+                                </td>
+                                <td>
+                                    <%=le.name%>
+                                </td>
+                                <td>
+                                    <%=convertDate(le.Course.createdAt)%>
+                                </td>
+                                <td>
+                                    <a href="<%=el.id%>/cancelCourse/<%=le.Course.id%>/<%=le.id%>">Cancel Course</a>
+                                </td>
+                            </tr>
+                        <%})%>
+                    
+                </table>
+            <%})%>
+        <%} else {%>
+            <h4>You dont have any Course</h4>
+        <%}%> 
+        
     </div>
 </body>
 </html>

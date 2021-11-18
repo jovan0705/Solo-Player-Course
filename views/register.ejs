@@ -6,17 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solo Player Course</title>
-    <link rel="stylesheet" href="../css/login.css">
+    <!-- <link rel="stylesheet" href="../css/login.css"> -->
 </head>
 
 <body>
     <div class='login'>
         <form action="/register" method="post">
             <h1>Register</h1>
-
-            <label for='name'>Name</label>
+            <div class = 'errors'>
+                <%if (errors !== undefined) {%>
+                    <%errors.forEach(el => {%>
+                        <p><%=el%></p>
+                    <%})%>
+                <%}%>
+            </div>
+            <label for='name'>Full Name</label>
             <br>
-            <input type="text" id='name' class='isi' name='name' placeholder="Type your Name Here">
+            <input type="text" id='name' class='isi' name='name' placeholder="Type your Full Name Here">
+            <br>
+            <label for='age'>Age</label>
+            <br>
+            <input type="number" id='age' class='isi' name='age' placeholder="Type your age Here">
+            <br>
+            <label for='gender'>Gender</label>
+            <br>
+            <select name="gender" id="gender">
+                <option disabled selected value>Gender..</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Apache Helicopter">Apache Helicopter</option>
+              </select>
             <br>
             <label for='username'>Username</label>
             <br>
@@ -30,7 +49,11 @@
             <br>
             <input type="password" id='password' class='isi' name='password' placeholder="Type your Password Here">
             <br>
-            <input type="submit" value="Login" class="submit">
+            <label for='profilePicture'>Profile Pictures</label>
+            <br>
+            <input type="text" id='profilePicture' class='isi' name='profilePicture' placeholder="Type your Profile Picture Url here">
+            <br>
+            <input type="submit" value="Register" class="submit">
         </form>
     </div>
 
