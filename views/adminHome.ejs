@@ -4,19 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="../css/adminHome.css">
 </head>
 <body>
     <div class = 'navbar'>
-        <h1>Admin Page</h1>
-        <a href="/admin">Home</a>
-        <a href="/admin/teachers">List Teacher</a>
-        <a href="/admin/courses">List Course</a>
+        <div class = 'navbar2'>
+            <a href="/admin" class = 'nav'>Home</a>
+            <a href="/admin/teachers" class = 'nav'>List Teacher</a>
+            <a href="/admin/courses" class = 'nav'>List Course</a>
+        </div>
     </div>
-    <a href='/admin/addCourse'>Add Course</a>
-    <a href="/admin/addTeacher">Add Teacher</a>
-    <a href="/logout">
-        <button type="button">Log Out</button>
-    </a>
+    <div class = 'isi'>
+        <h1>Admin Page</h1>
+        <a href='/admin/addCourse'>
+            <button type="button" class="isi2">Add Course</button>
+        </a>
+        <br>
+        <a href="/admin/addTeacher">
+            <button type="button" class="isi2">Add Teacher</button> 
+        </a>
+        <br>
+        <a href="/logout">
+            <button type="button" class="isi2">Log Out</button>
+        </a>
+    </div>
+
 </body>
 </html>

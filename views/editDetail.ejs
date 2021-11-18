@@ -5,66 +5,134 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile</title>
+    <style>
+        body {
+            width: 100%;
+            background-color: skyblue;
+        }
+        .header {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .nav {
+            background-color: orangered;
+            padding: 3px 8px 3px 8px;
+            border-radius: 10px;
+            font-size: 20px;
+        }
+
+        .isi {
+            width: 100%;
+        }
+
+        table {
+            background-color: orangered;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid black;
+            width: auto;
+            margin-top: 2%;
+            margin-left: 30%;
+            font-size: 25px;
+            color:white;
+        }
+
+        th {
+            text-decoration: underline;
+        }
+
+        label {
+            width: auto;
+        }
+
+        .nav2 {
+            width: 375px;
+        }
+
+        .submit {
+            text-align: center;
+            margin-top: 10px;
+            margin-left: 47.5%;
+            margin-right: auto;
+            background-color: orangered;
+            padding: 3px 8px 3px 8px;
+            border-radius: 10px;
+            font-size: 20px;
+        }
+
+        .errors {
+            font-size: 20px;
+            background-color: skyblue;
+            padding: 10px auto 10px auto;
+            width: 50%;
+            margin-left: 31%;
+            border-radius: 10px;
+        }
+
+        .errors p {
+            color:red;
+        }
+    </style>
 </head>
 <body>
     <div class = 'header'>
         <h1>Hello <%=data[0].name%> This is Your Profile Details</h1>
-        <a href="/user/<%=data[0].User.id%>">Back</a>
+        <a href="/user/<%=data[0].User.id%>" class = 'nav'>Back</a>
     </div>
-    <div class = 'errors'>
-        <%if (errors !== undefined) {%>
-            <%errors.forEach(el => {%>
-                <p><%=el%></p>
-            <%})%>
-        <%}%>
+    <div class = 'isi'>
+        <div class = 'errors'>
+            <%if (errors !== undefined) {%>
+                <%errors.forEach(el => {%>
+                    <p><%=el%></p>
+                <%})%>
+            <%}%>
+        </div>
+        <form action="/user/<%=data[0].User.id%>/detail/edit" method="post">
+            <table>
+                <tr>
+                    <td>
+                        <label for="name">Name</label>
+                    </td>
+                    <td>
+                        <input type="text" id="name" name="name" class = 'nav2' value="<%=data[0].name%>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="age">Age</label>
+                    </td>
+                    <td>
+                        <input type="number" id="age" name="age" class = 'nav2' value=<%=data[0].age%>>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email">Email</label>
+                    </td>
+                    <td>
+                        <input type="text" id="email" name="email" class = 'nav2' value="<%=data[0].email%>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="gender">Gender</label>
+                    </td>
+                    <td>
+                        <input type="text" id="gender" name="gender" class = 'nav2' value="<%=data[0].gender%>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="profilePicture">Profile Picture URL</label>
+                    </td>
+                    <td>
+                        <input type="text" id="profilePicture" name="profilePicture" class = 'nav2' value="<%=data[0].profilePicture%>">
+                    </td>
+                </tr>
+            </table>    
+            <input type="submit" value="Submit" class = 'submit'>   
+        </form>    
     </div>
-    <form action="/user/<%=data[0].User.id%>/detail/edit" method="post">
-        <table>
-            <tr>
-                <td>
-                    <label for="name">Name</label>
-                </td>
-                <td>
-                    <input type="text" id="name" name="name" value="<%=data[0].name%>">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="age">Age</label>
-                </td>
-                <td>
-                    <input type="number" id="age" name="age" value=<%=data[0].age%>>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="email">Email</label>
-                </td>
-                <td>
-                    <input type="text" id="email" name="email" value="<%=data[0].email%>">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="gender">Gender</label>
-                </td>
-                <td>
-                    <input type="text" id="gender" name="gender" value="<%=data[0].gender%>">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="profilePicture">Profile Picture URL</label>
-                </td>
-                <td>
-                    <input type="text" id="profilePicture" name="profilePicture" value="<%=data[0].profilePicture%>">
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Submit"></td>
-            </tr>
-        </table>        
-    </form>    
 </body>
 </html>

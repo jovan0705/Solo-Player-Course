@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add Course</title>
+    <link rel="stylesheet" href="../css/adminAddCourse.css">
 </head>
 <body>
     <!DOCTYPE html>
@@ -20,28 +21,33 @@
 
 <body>
     <div class = 'navbar'>
+        <div class = 'navbar2'>
+            <a href="/admin" class = 'nav'>Home</a>
+            <a href="/admin/teachers" class = 'nav'>List Teacher</a>
+            <a href="/admin/courses" class = 'nav'>List Course</a>
+        </div>
+
+    </div>
+
+    <div class='isi'>
         <h1>Admin Page</h1>
-        <a href="/admin">Home</a>
-        <a href="/admin/teachers">List Teacher</a>
-        <a href="/admin/courses">List Course</a>
-    </div>
-    <div class = 'errors'>
-        <%if (errors !== undefined) {%>
-            <%errors.forEach(el => {%>
-                <p><%=el%></p>
-            <%})%>
-        <%}%>
-    </div>
-    <div class='login'>
+
         <form action="/admin/addCourse" method="post">
-            <h1>Add Course</h1>
+            <h2>Add Course</h2>
+                    <div class = 'errors'>
+            <%if (errors !== undefined) {%>
+                <%errors.forEach(el => {%>
+                    <p><%=el%></p>
+                <%})%>
+            <%}%>
+        </div>
             <label for='name'>Name</label>
             <br>
-            <input type="text" id='name' class='isi' name='name' placeholder="Type Course Name Here">
+            <input type="text" id='name' class='isi2' name='name' placeholder="Type Course Name Here">
             <br>
             <label for='duration'>Duration</label>
             <br>
-            <input type="number" id='duration' class='isi' name='duration'>
+            <input type="number" id='duration' class='isi2' name='duration'>
             <br>
             <input type="submit" value="Add Post" class="submit">
         </form>

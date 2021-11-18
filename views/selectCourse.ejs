@@ -5,13 +5,81 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solo Player Course</title>
-    <link rel="stylesheet" href="../css/login.css">
+    <title>Select Course</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+
+        body {
+            background-color: skyblue;
+        }
+
+        label {
+            color:whitesmoke;
+            font-size: 30px;
+        }
+
+
+        .isi {
+            width: 80%;
+        }
+
+        table {
+            background-color: orangered;
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid black;
+            width: 25%;
+            margin-top: 2%;
+            margin-left: 37.5%;
+            font-size: 30px;
+            color:white;
+        }
+
+        th {
+            text-decoration: underline;
+        }
+
+        p {
+            color:white
+        }
+
+        h2 {
+            font-size: 40px;
+            color:white;
+            border: 5px solid black;
+            width: 20%;
+            margin-left: 39.6%;
+            background-color: orangered;
+            border-radius: 20px;
+            padding: 5px;
+        }
+
+        .isi {
+            width: 100%;
+            margin: 10em auto auto auto;
+            text-align: center;
+        }
+
+        .back {
+            background-color: orangered;
+            padding: 5px 10px;
+            border-radius: 10px;
+            border: 2px solid black;
+            width: 25%;
+            margin-top: 5px;
+            font-size: 30px;
+            color:white;
+        }
+
+    </style>
 </head>
 
 <body>
-    <div class='login'>
-            <h1>Select Course</h1>
+        <div class='isi'>
+            <h2>Select Course</h2>
             <table>
                 <%data.forEach(el => {%>
                     <tr>
@@ -20,9 +88,9 @@
                     </tr>
                 <%})%>
             </table>
-            
+            <br>
+            <a href="/user/<%=id%>" class = 'back'>Back</a>
     </div>
-
 </body>
 
 </html>

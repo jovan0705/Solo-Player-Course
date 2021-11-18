@@ -274,8 +274,10 @@ class Controller {
             }
         })
             .then(data => {
-                Course.findByPk(CourseId)
+                Course.findByPk(CourseId, {
+                })
                     .then(data2 => {
+                        // res.send(data2)
                         res.render('addCourse', { data, data2, id, CourseId, errors})
                     })
             })

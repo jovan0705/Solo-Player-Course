@@ -1,0 +1,114 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+body {
+    background-color: skyblue;
+}
+.login {
+    background-color: orangered;
+    margin: auto;
+    width: 25%;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10em;
+}
+
+h1 {
+    color:white;
+    margin-bottom: 1%;
+    font-size: 100px;
+    border: 5px solid black;
+    margin-left: 30%;
+    width: 40%;
+    text-align: center;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+}
+
+.navbar2 {
+    margin: 1% 2% auto auto;
+}
+.nav {
+    background-color: orangered;
+    padding: 3px 8px 3px 8px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+label {
+    color:whitesmoke
+}
+
+.isi {
+    width: 80%;
+}
+
+table {
+    width: 100%;
+}
+
+p {
+    color:white
+}
+
+.submit {
+    margin-top: 2%;
+    padding: 5px;
+    font-size: 25px;
+    width: 10%;
+    border-radius: 10px;
+    background-color: orangered;
+    color: white;
+}
+
+.isi {
+    width: 100%;
+    margin: 5em auto auto auto;
+    text-align: center;
+}
+
+.isi2 {
+    margin: auto;
+    border-radius: 20px;
+    padding: 10px 10px 10px 10px;
+    width: 20%;
+    font-size: 15px;
+}
+
+.isi3 {
+    border: 5px solid black;
+    width: 100%;
+}
+
+h2 {
+    text-decoration: underline;
+    margin-bottom: 1%;
+    font-size: 40px;
+    color: white;
+
+}
+
+label {
+    font-size: 40px;
+}
+
+.errors {
+    font-size: 20px;
+    background-color: skyblue;
+    padding: 10px auto 10px auto;
+    width: 50%;
+    margin-left: 25%;
+    border-radius: 10px;
+}
+
+.errors p {
+    color:red;
+}
+
+
